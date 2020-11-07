@@ -9,24 +9,24 @@
 5. New root may violate max heap but children are max heaps, call max_heapify().
 */
 
-void print(int a[], int);
-void build_heap(int a[], int);
-void heap_sort(int a[], int);
-void max_heapify(int a[], int, int);
+void print(int[], int);
+void heap_sort(int[], int);
+void build_heap(int[], int);
+
+void max_heapify(int[], int, int);
 
 int main()
 {
 	int array[] = {17, 9, 20, 11, 200, 35};
-
 	int array_size = sizeof(array) / sizeof(*array);
 
 	heap_sort(array, array_size);
-
 	print(array, array_size);
 
 	return 0;
 }
 
+//Prints the array
 void print(int a[], int n)
 {
 	for (int i = 0; i < n; i++)
@@ -34,25 +34,24 @@ void print(int a[], int n)
 	std::cout << std::endl;
 }
 
-void build_heap(int a[], int n)
-{
-	for (int i = n / 2; i >= 1; i--)
-		max_heapify(a, n, i);
-}
-
+//Performs heap sort
 void heap_sort(int a[], int n)
 {
-
 	build_heap(a, n);
 
 	//Heap sort
-	for (int i = n; i >= 1; i--)
+	for (int i = n; i > 0; i--)
 	{
 		std::swap(a[0], a[i - 1]);
-
-		//Max heapify
 		max_heapify(a, i - 1, 1);
 	}
+}
+
+//Builds heap structures from given array
+void build_heap(int a[], int n)
+{
+	for (int i = n / 2; i > 0; i--)
+		max_heapify(a, n, i);
 }
 
 void max_heapify(int a[], int n, int i)
