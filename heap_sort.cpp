@@ -17,7 +17,7 @@ void max_heapify(int[], int, int);
 
 int main()
 {
-	int array[] = {17, 9, 20, 11, 200, 35};
+	int array[] = {-10, -3, 20, 18, 9};
 	int array_size = sizeof(array) / sizeof(*array);
 
 	heap_sort(array, array_size);
