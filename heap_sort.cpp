@@ -27,50 +27,50 @@ int main()
 }
 
 //Prints the array
-void print(int a[], int n)
+void print(int A[], int n)
 {
 	for (int i = 0; i < n; i++)
-		std::cout << a[i] << " ";
+		std::cout << A[i] << " ";
 	std::cout << std::endl;
 }
 
 //Performs heap sort
-void heap_sort(int a[], int n)
+void heap_sort(int A[], int n)
 {
-	build_heap(a, n);
+	build_heap(A, n);
 
 	//Heap sort
 	for (int i = n; i > 0; i--)
 	{
-		std::swap(a[0], a[i - 1]);
-		max_heapify(a, i - 1, 1);
+		std::swap(A[0], A[i - 1]);
+		max_heapify(A, i - 1, 1);
 	}
 }
 
 //Builds heap structures from given array
-void build_heap(int a[], int n)
+void build_heap(int A[], int n)
 {
 	for (int i = n / 2; i > 0; i--)
-		max_heapify(a, n, i);
+		max_heapify(A, n, i);
 }
 
-void max_heapify(int a[], int n, int i)
+void max_heapify(int A[], int n, int i)
 {
 	// Find largest among root, left child and right child
 	int largest = i;
 	int left = 2 * i;
 	int right = 2 * i + 1;
 
-	if (left <= n && a[left - 1] > a[largest - 1])
+	if (left <= n && A[left - 1] > A[largest - 1])
 		largest = left;
 
-	if (right <= n && a[right - 1] > a[largest - 1])
+	if (right <= n && A[right - 1] > A[largest - 1])
 		largest = right;
 
 	// Swap and continue heapifying if root is not largest
 	if (largest != i)
 	{
-		std::swap(a[i - 1], a[largest - 1]);
-		max_heapify(a, n, largest);
+		std::swap(A[i - 1], A[largest - 1]);
+		max_heapify(A, n, largest);
 	}
 }
