@@ -39,39 +39,39 @@ int main()
 }
 
 //Prints the array
-void print(int a[], int n)
+void print(int A[], int n)
 {
 	for (int i = 0; i < n; i++)
-		std::cout << a[i] << " ";
+		std::cout << A[i] << " ";
 	std::cout << std::endl;
 }
 
 //Builds heap structures from given array
-void build_heap(int a[], int n)
+void build_heap(int A[], int n)
 {
 	for (int i = n / 2; i > 0; i--)
-		min_heapify(a, n, i);
+		min_heapify(A, n, i);
 }
 
-void min_heapify(int a[], int n, int i)
+void min_heapify(int A[], int n, int i)
 {
 	int smallest = i;
 	int left = 2 * i;
 	int right = (2 * i) + 1;
 
-	if (left <= n && a[left - 1] < a[smallest - 1])
+	if (left <= n && A[left - 1] < A[smallest - 1])
 		smallest = left;
-	if (right <= n && a[right - 1] < a[smallest - 1])
+	if (right <= n && A[right - 1] < A[smallest - 1])
 		smallest = right;
 
 	if (smallest != i)
 	{
-		std::swap(a[i - 1], a[smallest - 1]);
-		min_heapify(a, n, smallest);
+		std::swap(A[i - 1], A[smallest - 1]);
+		min_heapify(A, n, smallest);
 	}
 }
 
-int extract_min(int a[])
+int extract_min(int A[])
 {
 	//Heap underflow
 	if (heap_size < 1){
@@ -79,11 +79,11 @@ int extract_min(int a[])
 		return INT_MAX;
 	}
 
-	int minimum = a[0];
-	a[0] = a[heap_size - 1];
+	int minimum = A[0];
+	A[0] = A[heap_size - 1];
 	heap_size--;
 
-	min_heapify(a, heap_size, 1);
+	min_heapify(A, heap_size, 1);
 
 	return minimum;
 }
