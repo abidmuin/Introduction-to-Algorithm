@@ -1,9 +1,9 @@
 #include <iostream>
 #include <climits>
 
-void print(int a[], int);
-void merge_sort(int a[], int, int);
-void merge(int a[], int, int, int);
+void print(int A[], int);
+void merge_sort(int A[], int, int);
+void merge(int A[], int, int, int);
 
 int main()
 {
@@ -24,25 +24,25 @@ int main()
 	print(array, array_size);
 }
 
-void print(int a[], int a_size)
+void print(int A[], int a_size)
 {
 	for (int i = 0; i < a_size; i++)
-		std::cout << a[i] << " ";
+		std::cout << A[i] << " ";
 }
 
-void merge_sort(int a[], int l, int r)
+void merge_sort(int A[], int l, int r)
 {
 	if (l < r)
 	{
 		int m = l + ((r - l) / 2);
-		merge_sort(a, l, m);
-		merge_sort(a, m + 1, r);
+		merge_sort(A, l, m);
+		merge_sort(A, m + 1, r);
 
-		merge(a, l, m, r);
+		merge(A, l, m, r);
 	}
 }
 
-void merge(int a[], int l, int m, int r)
+void merge(int A[], int l, int m, int r)
 {
 	int n1 = m - l + 1, n2 = r - m;
 	//Dynamically array allocation
@@ -58,10 +58,10 @@ void merge(int a[], int l, int m, int r)
 	R[n2] = INT_MIN;
 
 	for (int i = 0; i < n1; i++)
-		L[i] = a[l + i];
+		L[i] = A[l + i];
 
 	for (int j = 0; j < n2; j++)
-		R[j] = a[m + 1 + j];
+		R[j] = A[m + 1 + j];
 
 	int x = 0, y = 0, z = l;
 
@@ -86,12 +86,12 @@ void merge(int a[], int l, int m, int r)
 	{
 		if (L[x] >= R[y])
 		{
-			a[z] = L[x];
+			A[z] = L[x];
 			x++;
 		}
 		else
 		{
-			a[z] = R[y];
+			A[z] = R[y];
 			y++;
 		}
 		z++;
