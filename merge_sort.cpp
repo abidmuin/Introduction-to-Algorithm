@@ -22,6 +22,8 @@ int main()
 
 	std::cout << "Sorted array : ";
 	print(array, array_size);
+
+	return 0;
 }
 
 void print(int A[], int a_size)
