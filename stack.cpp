@@ -41,7 +41,7 @@ void stack::push(int x)
 {
 	if (is_full())
 	{
-		std::cout << "Stack overflow" << std::endl;
+		std::cout << "Stack overflow!" << std::endl;
 		exit(EXIT_FAILURE);
 	}
 	std::cout << "Pushed=> " << x << std::endl;
@@ -53,7 +53,7 @@ int stack::pop()
 {
 	if (is_empty())
 	{
-		std::cout << "Stack underflow" << std::endl;
+		std::cout << "Stack underflow!" << std::endl;
 	}
 	std::cout << "Popped=> " << peek() << std::endl;
 	return array[top--];
