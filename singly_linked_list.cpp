@@ -19,9 +19,9 @@ public:
 	void create_node(int);
 	void display();
 	void insert_first(int);
-	void insert_position(int, int);
+	void insert_at(int, int);
 	void delete_first();
-	void delete_position(int);
+	void delete_at(int);
 	void delete_last();
 };
 
@@ -46,6 +46,7 @@ void linked_list::create_node(int item)
 	}
 	else
 	{
+		//assigning temp->next as NULL
 		tail->next = temp;
 		tail = tail->next;
 	}
@@ -77,8 +78,8 @@ void linked_list::insert_first(int item)
 	std::cout << "Inserting => " << item << " at head." << std::endl;
 }
 
-//insert_position
-void linked_list::insert_position(int position, int item)
+//insert_at
+void linked_list::insert_at(int position, int item)
 {
 	node *previous = new node;
 	node *current = new node;
@@ -109,8 +110,8 @@ void linked_list::delete_first()
 	delete temp;
 }
 
-//delete_position
-void linked_list::delete_position(int position)
+//delete_at
+void linked_list::delete_at(int position)
 {
 	node *current = new node;
 	node *previous = new node;
@@ -130,7 +131,8 @@ void linked_list::delete_last()
 	node *current = new node;
 	node *previous = new node;
 	current = head;
-	while(current->next != NULL){
+	while (current->next != NULL)
+	{
 		previous = current;
 		current = current->next;
 	}
@@ -161,13 +163,13 @@ int main()
 	test_obj.delete_last();
 	test_obj.display();
 
-	test_obj.delete_position(3);
+	test_obj.delete_at(3);
 	test_obj.display();
 
 	test_obj.insert_first(2473);
 	test_obj.display();
 
-	test_obj.insert_position(7, 239);
+	test_obj.insert_at(7, 239);
 	test_obj.display();
 
 	return 0;
